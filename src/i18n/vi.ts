@@ -6,7 +6,7 @@ export default {
     error: {
       noId: "Cập nhập yêu cầu phải có trường 'id'",
       hasId: "Tạo mới nên không có trường 'id'",
-      importing: "Đang nhập dữ liệu ...",
+      importing: "Nhập lỗi: ",
       emptyResource:
         "Tài nguyên đang rỗng, bạn chưa pass {...props} vao ImportButton",
     },

@@ -79,7 +79,11 @@ export const ImportButton = (props: any) => {
   const handleComplete = (error = false) => {
     handleClose();
     if (!error) {
-      notify(`${i18nProvider.translate("csv.alert.imported")} ${fileName}`);
+      notify(
+        `${i18nProvider.translate("csv.alert.imported")} ${fileName}`,
+        "info",
+        {}
+      );
       refresh();
     }
     if (error) {
@@ -87,7 +91,8 @@ export const ImportButton = (props: any) => {
         `${i18nProvider.translate(
           "csv.error.importing"
         )} ${fileName}, ${error}`,
-        "error"
+        "error",
+        {}
       );
     }
   };
