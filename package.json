@@ -1,5 +1,5 @@
 {
-  "name": "react-admin-import-csv",
+  "name": "ra-import-csv",
   "version": "0.0.0",
   "description": "CSV import button for react-admin",
   "repository": "https://github.com/benwinding/react-admin-import-csv",
@@ -15,6 +15,7 @@
   ],
   "main": "lib/index",
   "module": "esm/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "yarn run build-cjs && yarn run build-esm",
     "build-watch": "yarn build-for-demo -w",
@@ -27,10 +28,10 @@
     "clean": "rimraf dist"
   },
   "peerDependencies": {
-    "react-admin": "3.x"
+    "react-admin": "3.x",
+    "papaparse": "5.x"
   },
   "dependencies": {
-    "papaparse": "4.x",
     "ramda": "^0.27.0",
     "ra-language-spanish": "1.x"
   },

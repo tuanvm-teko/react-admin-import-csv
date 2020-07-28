@@ -35,14 +35,13 @@ export async function getCsvData(
       // Configs (overwrites)
       ...config,
       // Callbacks
-      complete: (result) => resolve(result.data),
+      complete: (result: any) => resolve(result.data),
       error: (error) => reject(error),
     })
   );
 }
 
 export function processCsvData(data: string[][]): any[] {
-
   if (Array.isArray(data[0])) {
     const topRowKeys: string[] = data[0];
 
@@ -56,13 +55,12 @@ export function processCsvData(data: string[][]): any[] {
       return value;
     });
     return dataRows;
-  }
-  else {
+  } else {
     const dataRows = [];
-    data.forEach( (obj) => {
-        let value: any = {}
-        for (let key in obj) value = setObjectValue(value, key, obj[key]);
-        dataRows.push(value);
+    data.forEach((obj) => {
+      let value: any = {};
+      for (let key in obj) value = setObjectValue(value, key, obj[key]);
+      dataRows.push(value);
     });
     return dataRows;
   }
