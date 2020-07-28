@@ -28,11 +28,11 @@
     "clean": "rimraf dist"
   },
   "peerDependencies": {
-    "react-admin": "3.x",
-    "papaparse": "5.x"
+    "react-admin": "3.x"
   },
   "dependencies": {
     "ramda": "^0.27.0",
+    "papaparse": "5.x",
     "ra-language-spanish": "1.x"
   },
   "devDependencies": {
