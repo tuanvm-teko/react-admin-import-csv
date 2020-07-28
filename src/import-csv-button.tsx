@@ -10,6 +10,7 @@ import { processCsvFile } from "./csv-extractor";
 
 import englishMessages from "ra-language-english";
 import spanishMessages from "ra-language-spanish";
+import vietnameseMessages from "ra-language-vietnamese";
 
 import * as domainMessages from "./i18n";
 import polyglotI18nProvider from "ra-i18n-polyglot";
@@ -27,6 +28,7 @@ export const ImportButton = (props: any) => {
   const messages = {
     es: { ...spanishMessages, ...domainMessages.es },
     en: { ...englishMessages, ...domainMessages.en },
+    vi: { ...vietnameseMessages, ...domainMessages.vi },
   };
 
   const i18nProvider = polyglotI18nProvider(

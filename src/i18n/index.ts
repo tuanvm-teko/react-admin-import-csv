@@ -1,5 +1,5 @@
+import en from "./en";
+import es from "./es";
+import vi from "./vi";
 
-import en from './en';
-import es from './es';
-
-export { en, es };
+export { en, es, vi };
