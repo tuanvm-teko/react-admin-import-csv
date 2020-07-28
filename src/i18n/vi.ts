@@ -15,8 +15,8 @@ export default {
     },
     dialog: {
       importTo: "Nhập dữ liệu vào",
-      dataFileReq: "Data file requirements",
-      extension: "Must be a '.csv' or '.tsv' file",
+      dataFileReq: "Dữ liệu trong tệp:",
+      extension: "Phải ở định dạng .csv hoặc .tsv",
       idColumnCreate: "Khi nhập mới thì không có trường 'id'",
       idColumnUpdate: "Khi cập nhật thì phải có trường 'id'",
       chooseFile: "Chọn tệp",
