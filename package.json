@@ -52,6 +52,12 @@
     "react-scripts": "^3.4.1",
     "source-map-loader": "^0.2.4",
     "ts-jest": "^24.x.x",
-    "typescript": "3.x"
+    "typescript": "3.x",
+    "husky": "^4.2.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn build && git add ."
+    }
   }
 }
