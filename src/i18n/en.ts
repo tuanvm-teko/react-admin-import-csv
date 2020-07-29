@@ -1,30 +1,30 @@
 export default {
   csv: {
     main: {
-      import: 'Import',
+      import: "Import",
     },
     error: {
       noId: "Overwrite requires field 'id'",
       hasId: "Create should not include field 'id'",
-      importing: 'Error importing',
+      importing: "Error importing",
       emptyResource:
         "The 'resource' property was empty, did you pass in the {...props} to the ImportButton?",
     },
     alert: {
-      imported: 'Imported',
+      imported: "Imported",
     },
     dialog: {
-      importTo: 'Import to',
-      dataFileReq: 'Data file requirements',
-      extension: "Must be a '.csv' or '.tsv' file",
+      importTo: "Import to",
+      dataFileReq: "Data file requirements",
+      extension: "Must be a '.csv', '.tsv', '.xlsx', '.xls' file",
       idColumnCreate: "Must not contain an 'id' column for new",
       idColumnUpdate: "Must contain an 'id' column for overwrite",
-      chooseFile: 'Choose File',
-      processed: 'Processed',
-      rowCount: 'Row Count',
-      cancel: 'Cancel',
-      importNew: 'Import as New',
-      importOverride: 'Import as Overwrite ',
+      chooseFile: "Choose File",
+      processed: "Processed",
+      rowCount: "Row Count",
+      cancel: "Cancel",
+      importNew: "Import as New",
+      importOverride: "Import as Overwrite ",
     },
   },
 };

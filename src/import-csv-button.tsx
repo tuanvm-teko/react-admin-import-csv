@@ -190,7 +190,7 @@ export const ImportButton = (props: any) => {
                 type="file"
                 style={{ display: "none" }}
                 onChange={onFileAdded}
-                accept=".csv,.tsv,.txt"
+                accept=".csv,.tsv,.txt,.xlsx,.xls"
               />
             </Button>
             {!!fileName && (

@@ -1,6 +1,7 @@
 import { parse as convertFromCSV, ParseConfig } from "papaparse";
 import lensPath from "ramda/src/lensPath";
 import over from "ramda/src/over";
+import readXlsxFile from "read-excel-file";
 
 const setObjectValue = (object: any, path: string, value: any): any => {
   const lensPathFunction = lensPath(path.split("."));
@@ -27,18 +28,27 @@ export async function getCsvData(
   if (isObject) {
     config = inputConfig;
   }
-  return new Promise<string[][]>((resolve, reject) =>
-    convertFromCSV(file, {
-      // Defaults
-      delimiter: ",",
-      skipEmptyLines: true,
-      // Configs (overwrites)
-      ...config,
-      // Callbacks
-      complete: (result: any) => resolve(result.data),
-      error: (error) => reject(error),
-    })
-  );
+  return new Promise<string[][]>((resolve, reject) => {
+    const dataParser = (data: any) =>
+      convertFromCSV(data, {
+        // Defaults
+        delimiter: ",",
+        skipEmptyLines: true,
+        // Configs (overwrites)
+        ...config,
+        // Callbacks
+        complete: (result: any) => resolve(result.data),
+
+        error: (error) => reject(error),
+      });
+    return readXlsxFile(file)
+      .then((data: string[][]) => {
+        return dataParser(data.map((line) => line.join(",")).join("\n"));
+      })
+      .catch((err) => {
+        return dataParser(file);
+      });
+  });
 }
 
 export function processCsvData(data: string[][]): any[] {
