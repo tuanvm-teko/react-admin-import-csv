@@ -166,8 +166,7 @@ export const ImportButton = (props: any) => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description">
         <DialogTitle id="alert-dialog-title">
-          {i18nProvider.translate("csv.dialog.importTo")} "
-          {i18nProvider.translate(`resources.${resourceName}.importName`)}"
+          {i18nProvider.translate("csv.dialog.importTo")}
         </DialogTitle>
         <DialogContent>
           <div

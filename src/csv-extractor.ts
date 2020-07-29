@@ -37,14 +37,18 @@ export async function getCsvData(
         // Configs (overwrites)
         ...config,
         // Callbacks
-        complete: (result: any) => resolve(result.data),
+        complete: (result: any) => {
+          resolve(result.data);
+        },
 
         error: (error) => reject(error),
       });
     return readXlsxFile(file)
       .then((data: string[][]) => {
         return dataParser(
-          data.map((line) => line.map((val) => val || "").join(",")).join("\n")
+          data
+            .map((line) => line.map((val) => (val ? `"${val}"` : "")).join(","))
+            .join("\n")
         );
       })
       .catch((err) => {
