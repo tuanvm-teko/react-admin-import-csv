@@ -43,7 +43,9 @@ export async function getCsvData(
       });
     return readXlsxFile(file)
       .then((data: string[][]) => {
-        return dataParser(data.map((line) => line.join(",")).join("\n"));
+        return dataParser(
+          data.map((line) => line.map((val) => val || "").join(",")).join("\n")
+        );
       })
       .catch((err) => {
         return dataParser(file);
