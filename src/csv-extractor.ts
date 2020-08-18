@@ -43,13 +43,14 @@ export async function getCsvData(
 
         error: (error) => reject(error),
       });
-    return readXlsxFile(file)
+
+    return readXlsxFile(file, {
+      transformData: (data) => {
+        return data;
+      },
+    })
       .then((data: string[][]) => {
-        return dataParser(
-          data
-            .map((line) => line.map((val) => (val ? `"${val}"` : "")).join(","))
-            .join("\n")
-        );
+        return resolve(data);
       })
       .catch((err) => {
         return dataParser(file);
