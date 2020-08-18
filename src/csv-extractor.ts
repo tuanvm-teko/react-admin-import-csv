@@ -23,7 +23,7 @@ export async function getCsvData(
   file: File | any,
   inputConfig: ParseConfig = {}
 ) {
-  let config = {};
+  let config: any = {};
   const isObject = !!inputConfig && typeof inputConfig === "object";
   if (isObject) {
     config = inputConfig;
@@ -50,6 +50,11 @@ export async function getCsvData(
       },
     })
       .then((data: string[][]) => {
+        const first = data[0];
+        const changeHeader = first.map((header) =>
+          config.transformHeader ? config.transformHeader(header) : header
+        );
+        data[0] = changeHeader;
         return resolve(data);
       })
       .catch((err) => {
