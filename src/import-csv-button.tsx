@@ -45,7 +45,13 @@ export const ImportButton = (props: any) => {
     throw new Error(i18nProvider.translate("csv.error.emptyResource"));
   }
 
-  let { variant, label, resourceName } = props;
+  let {
+    variant,
+    label,
+    resourceName,
+    showCreate = true,
+    showOverWrite = true,
+  } = props;
   if (!label) {
     label = i18nProvider.translate("csv.main.import");
   }
@@ -213,22 +219,26 @@ export const ImportButton = (props: any) => {
           <Button onClick={handleClose}>
             <span>{i18nProvider.translate("csv.dialog.cancel")}</span>
           </Button>
-          <Button
-            disabled={!values || importing}
-            onClick={handleSubmitCreate}
-            color="secondary"
-            variant="contained">
-            {importing && <CircularProgress size={18} thickness={2} />}
-            <span>{i18nProvider.translate("csv.dialog.importNew")}</span>
-          </Button>
-          <Button
-            disabled={!values || importing}
-            onClick={handleSubmitOverwrite}
-            color="primary"
-            variant="contained">
-            {importing && <CircularProgress size={18} thickness={2} />}
-            <span>{i18nProvider.translate("csv.dialog.importOverride")}</span>
-          </Button>
+          {showCreate && (
+            <Button
+              disabled={!values || importing}
+              onClick={handleSubmitCreate}
+              color="secondary"
+              variant="contained">
+              {importing && <CircularProgress size={18} thickness={2} />}
+              <span>{i18nProvider.translate("csv.dialog.importNew")}</span>
+            </Button>
+          )}
+          {showOverWrite && (
+            <Button
+              disabled={!values || importing}
+              onClick={handleSubmitOverwrite}
+              color="primary"
+              variant="contained">
+              {importing && <CircularProgress size={18} thickness={2} />}
+              <span>{i18nProvider.translate("csv.dialog.importOverride")}</span>
+            </Button>
+          )}
         </DialogActions>
       </Dialog>
     </>
