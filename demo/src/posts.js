@@ -59,6 +59,9 @@ const ListActions = (props) => {
             return HEADER_MAPPER[snake] || snake;
           },
         }}
+        addFields={(rows) => {
+          return rows.map((row) => ({ ...row, unitId: 1 }));
+        }}
       />
     </TopToolbar>
   );

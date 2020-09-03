@@ -36,7 +36,13 @@ export const ImportButton = (props: any) => {
     resolveBrowserLocale()
   );
 
-  const { resource, parseConfig, logging, preCommitCallback } = props;
+  const {
+    resource,
+    parseConfig,
+    logging,
+    preCommitCallback,
+    addFields,
+  } = props;
 
   if (logging) {
     console.log({ props });
@@ -143,7 +149,7 @@ export const ImportButton = (props: any) => {
     const file = e.target.files && e.target.files[0];
     setFileName(file.name);
     try {
-      const values = await processCsvFile(file, parseConfig);
+      const values = await processCsvFile(file, parseConfig, addFields);
       if (logging) {
         console.log({ values });
       }

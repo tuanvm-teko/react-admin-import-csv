@@ -10,13 +10,16 @@ const setObjectValue = (object: any, path: string, value: any): any => {
 
 export async function processCsvFile(
   file: File | any,
-  parseConfig: ParseConfig = {}
+  parseConfig: ParseConfig = {},
+  addFields = (row: any) => {
+    return row;
+  }
 ) {
   if (!file) {
     return;
   }
   const csvData = await getCsvData(file, parseConfig);
-  return processCsvData(csvData);
+  return processCsvData(csvData, addFields);
 }
 
 export async function getCsvData(
@@ -63,7 +66,7 @@ export async function getCsvData(
   });
 }
 
-export function processCsvData(data: string[][]): any[] {
+export function processCsvData(data: string[][], addFields: any): any[] {
   if (Array.isArray(data[0])) {
     const topRowKeys: string[] = data[0];
 
@@ -76,7 +79,7 @@ export function processCsvData(data: string[][]): any[] {
 
       return value;
     });
-    return dataRows;
+    return addFields(dataRows);
   } else {
     const dataRows = [];
     data.forEach((obj) => {
@@ -84,6 +87,6 @@ export function processCsvData(data: string[][]): any[] {
       for (let key in obj) value = setObjectValue(value, key, obj[key]);
       dataRows.push(value);
     });
-    return dataRows;
+    return addFields(dataRows);
   }
 }
