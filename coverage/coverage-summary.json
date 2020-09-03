@@ -1,3 +1,3 @@
-{"total": {"lines":{"total":47,"covered":33,"skipped":0,"pct":70.21},"statements":{"total":50,"covered":35,"skipped":0,"pct":70},"functions":{"total":16,"covered":11,"skipped":0,"pct":68.75},"branches":{"total":16,"covered":9,"skipped":0,"pct":56.25}}
-,"/home/mrt/Desktop/out/libs/react-admin-import-csv/src/csv-extractor.ts": {"lines":{"total":47,"covered":33,"skipped":0,"pct":70.21},"functions":{"total":16,"covered":11,"skipped":0,"pct":68.75},"statements":{"total":50,"covered":35,"skipped":0,"pct":70},"branches":{"total":16,"covered":9,"skipped":0,"pct":56.25}}
+{"total": {"lines":{"total":49,"covered":35,"skipped":0,"pct":71.43},"statements":{"total":52,"covered":37,"skipped":0,"pct":71.15},"functions":{"total":17,"covered":12,"skipped":0,"pct":70.59},"branches":{"total":18,"covered":10,"skipped":0,"pct":55.56}}
+,"/home/mrt/Desktop/out/libs/react-admin-import-csv/src/csv-extractor.ts": {"lines":{"total":49,"covered":35,"skipped":0,"pct":71.43},"functions":{"total":17,"covered":12,"skipped":0,"pct":70.59},"statements":{"total":52,"covered":37,"skipped":0,"pct":71.15},"branches":{"total":18,"covered":10,"skipped":0,"pct":55.56}}
 }

@@ -11,9 +11,7 @@ const setObjectValue = (object: any, path: string, value: any): any => {
 export async function processCsvFile(
   file: File | any,
   parseConfig: ParseConfig = {},
-  addFields = (row: any) => {
-    return row;
-  }
+  addFields?: any
 ) {
   if (!file) {
     return;
@@ -66,7 +64,12 @@ export async function getCsvData(
   });
 }
 
-export function processCsvData(data: string[][], addFields: any): any[] {
+export function processCsvData(
+  data: string[][],
+  addFields = (row: any) => {
+    return row;
+  }
+): any[] {
   if (Array.isArray(data[0])) {
     const topRowKeys: string[] = data[0];
 
