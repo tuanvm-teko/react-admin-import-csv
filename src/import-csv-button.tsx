@@ -97,7 +97,9 @@ export const ImportButton = (props: any) => {
         "info",
         {}
       );
-      refresh();
+      if (!handleValues) {
+        refresh();
+      }
     }
     if (error) {
       notify(
