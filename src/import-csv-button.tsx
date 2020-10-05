@@ -52,6 +52,7 @@ export const ImportButton = (props: any) => {
   }
 
   let {
+    handleValues,
     variant,
     label,
     resourceName,
@@ -116,8 +117,13 @@ export const ImportButton = (props: any) => {
         throw new Error(i18nProvider.translate("csv.error.hasId"));
       }
       if (preCommitCallback) setValues(preCommitCallback("create", values));
-      await dataProvider.create(resource, { data: values });
-      handleComplete();
+
+      if (!handleValues) {
+        await dataProvider.create(resource, { data: values });
+        handleComplete();
+      } else {
+        handleValues(values, handleComplete);
+      }
     } catch (error) {
       handleComplete(error);
     }

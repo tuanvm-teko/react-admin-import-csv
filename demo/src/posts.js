@@ -62,6 +62,10 @@ const ListActions = (props) => {
         addFields={(rows) => {
           return rows.map((row) => ({ ...row, unitId: 1 }));
         }}
+        handleValues={(values, cb) => {
+          console.log(values);
+          cb();
+        }}
       />
     </TopToolbar>
   );
